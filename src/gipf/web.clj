@@ -12,33 +12,74 @@
                 [:meta {:http-equiv "Content-type"
                         :content "text/html; charset=utf-8"}]
                 [:title "adder"]]
-               [:body content])))
+               [:body 
+                [:div.nav 
+                           [:a.action {:href "/"} "Home"]
+                           [:a.action {:href "/gipf"} "Gipf"]
+                           [:a.action {:href "/tzaar"} "Tzaar"]
+                           [:a.action {:href "/zertz"} "Zertz"]
+                           [:a.action {:href "/dvonn"} "Dvonn"]
+                           [:a.action {:href "/yinsh"} "Yinsh"]
+                           [:a.action {:href "/punct"} "Punct"]
+                           [:a.action {:href "/tamsk"} "Tamsk"]]
+                 content])))
 
-(defn view-input []
+(defn view-home []
   (view-layout
-    [:h2 "add two numbers"]
-    [:form {:method "post" :action "/"}
-     [:input.math {:type "text" :name "a"}] [:span.math " + "]
-     [:input.math {:type "text" :name "b"}] [:br]
-     [:input.action {:type "submit" :value "add"}]]))
+    [:h1 "Welcome to Gipf-Online"]))
 
-(defn view-output [a b sum]
+(defn view-gipf []
   (view-layout
-    [:h2 "two numbers added"]
-    [:p.math a " + " b " = " sum]
-    [:a.action {:href "/"} "add more numbers"]))
+    [:h1 "Play Gipf"]))
 
-(defn parse-input [a b]
-  [(read-string a) (read-string b)])
+(defn view-tzaar []
+  (view-layout
+    [:h1 "Play Tzaar"]))
+
+(defn view-zertz []
+  (view-layout
+    [:h1 "Play Zertz"]))
+
+(defn view-dvonn []
+  (view-layout
+    [:h1 "Play Dvonn"]))
+
+(defn view-yinsh []
+  (view-layout
+    [:h1 "Play Yinsh"]))
+
+(defn view-punct []
+  (view-layout
+    [:h1 "Play Punct"]))
+
+(defn view-tamsk []
+  (view-layout
+    [:h1 "Play Tamsk"]))
 
 (defroutes main-routes
            (GET "/" []
-                (view-input))
+                (view-home))
 
-           (POST "/" [a b]
-                 (let [[a b] (parse-input a b)
-                       sum (+ a b)]
-                   (view-output a b sum))))
+           (GET "/gipf" []
+                (view-gipf))
+
+           (GET "/tzaar" []
+                (view-tzaar))
+
+           (GET "/zertz" []
+                (view-zertz))
+
+           (GET "/dvonn" []
+                (view-dvonn))
+
+           (GET "/yinsh" []
+                (view-yinsh))
+
+           (GET "/punct" []
+                (view-punct))
+
+           (GET "/tamsk" []
+                (view-tamsk)))
 
 (def app (wrap-params main-routes))
 
