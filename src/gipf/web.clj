@@ -3,6 +3,7 @@
   (:use [ring.middleware.params :only [wrap-params]])
   (:use ring.middleware.reload)
   (:use ring.middleware.stacktrace)
+  (:use ring.util.response)
   (:use compojure.core)
   (:use hiccup.core)
   (:use hiccup.page))
@@ -81,7 +82,10 @@
                 (view-punct))
 
            (GET "/tamsk" []
-                (view-tamsk)))
+                (view-tamsk))
+
+           (ANY "/*" [path]
+                (redirect "/")))
 
 (def handler (wrap-params main-routes))
 
