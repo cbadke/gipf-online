@@ -1,6 +1,8 @@
 (ns gipf.web
   (:use [ring.adapter.jetty :only [run-jetty]])
   (:use [ring.middleware.params :only [wrap-params]])
+  (:use ring.middleware.reload)
+  (:use ring.middleware.stacktrace)
   (:use compojure.core)
   (:use hiccup.core)
   (:use hiccup.page))
@@ -81,7 +83,12 @@
            (GET "/tamsk" []
                 (view-tamsk)))
 
-(def app (wrap-params main-routes))
+(def handler (wrap-params main-routes))
+
+(def app
+  (-> #'handler
+    (wrap-reload '[gipf.web])
+    (wrap-stacktrace)))
 
 (defn -main [port]
   (run-jetty app {:port (Integer. port)}))
