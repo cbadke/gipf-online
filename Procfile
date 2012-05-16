@@ -1,1 +1,1 @@
-web: lein trampoline run -m gipf.web $PORT
+web: lein run

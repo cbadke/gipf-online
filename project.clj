@@ -1,5 +1,5 @@
 (defproject gipf-online "0.0.1"
-  :dependencies [[org.clojure/clojure "1.3.0"]
-                 [ring "1.1.0"]
-                 [compojure "1.0.4"]
-                 [hiccup "1.0.0"]])
+            :description "A web app that allows users to play the games in Project Gipf"
+            :dependencies [[org.clojure/clojure "1.3.0"] 
+                           [noir "1.2.1"]]
+            :main web.server)
