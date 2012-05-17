@@ -1,0 +1,22 @@
+#page-container {
+}
+
+#header {
+	padding: 10px;
+}
+
+#body-wrapper {
+}
+
+#footer {
+	height: 72px;
+}
+
+#footer div {
+	margin: 0 auto;
+	display: table;
+}
+
+#footer img {
+	padding: 5px;
+}

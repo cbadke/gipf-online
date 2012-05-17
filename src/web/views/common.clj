@@ -8,21 +8,32 @@
     (html5
       [:head
        [:title title]
+       (include-css "/css/common.css")
        (include-css "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/smoothness/jquery-ui.css")
        (include-js  "https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js")
        (include-js  "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js")]
       [:body 
-       [:div#nav 
-        [:a.action {:href "/"} "Home"]
-        [:a.action {:href "/gipf"} "Gipf"]
-        [:a.action {:href "/tzaar"} "Tzaar"]
-        [:a.action {:href "/zertz"} "Zertz"]
-        [:a.action {:href "/dvonn"} "Dvonn"]
-        [:a.action {:href "/yinsh"} "Yinsh"]
-        [:a.action {:href "/punct"} "Punct"]
-        [:a.action {:href "/tamsk"} "Tamsk"]]
-       [:div#wrapper content]
-       [:div#footer ]])))
+       [:div#page-container
+        [:div#header
+         [:a {:href "/"} "Home"]
+         [:a {:href "/gipf"} "GIPF"]
+         [:a {:href "/tamsk"} "TAMSK"]
+         [:a {:href "/tzaar"} "TZAAR"]
+         [:a {:href "/zertz"} "ZÈRTZ"]
+         [:a {:href "/dvonn"} "DVONN"]
+         [:a {:href "/yinsh"} "YINSH"]
+         [:a {:href "/punct"} "PÜNCT"]]
+        [:div#body-wrapper content]
+        [:div#footer 
+         [:div 
+          [:a {:href "http://creativecommons.org/licenses/by-nc-sa/3.0/"} 
+           [:img {:src "http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" :alt "Creative Commons License" :title "Creative Commons License"}]]
+          [:a.github {:href "https://github.com/cbadke/gipf-online"}
+           [:img {:src "/images/github-icon.jpg" :alt "Fork me on Github" :title "Fork me on Github"}]]]
+         [:div 
+          [:a {:href "http://www.gipf.com"} "The GIPF Project"]
+          [:span " is created by "]
+          [:a {:href "http://en.wikipedia.org/wiki/Kris_Burm"} "Kris Burm"]]]]])))
 
 (defpage "/" []
   (page-wrapper
