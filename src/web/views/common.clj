@@ -4,7 +4,7 @@
         [hiccup.page-helpers :only [include-css include-js html5 link-to]]))
 
 (defpartial page-wrapper [& content]
-  (let [title "Gipf Online"]
+  (let [title "GIPF Online"]
     (html5
       [:head
        [:title title]
@@ -17,12 +17,12 @@
         [:div#header
          [:a {:href "/"} "Home"]
          [:a {:href "/gipf"} "GIPF"]
-         [:a {:href "/tamsk"} "TAMSK"]
          [:a {:href "/tzaar"} "TZAAR"]
          [:a {:href "/zertz"} "ZÈRTZ"]
          [:a {:href "/dvonn"} "DVONN"]
          [:a {:href "/yinsh"} "YINSH"]
-         [:a {:href "/punct"} "PÜNCT"]]
+         [:a {:href "/punct"} "PÜNCT"]
+         [:a {:href "/tamsk"} "TAMSK"]]
         [:div#body-wrapper content]
         [:div#footer 
          [:div 
@@ -37,5 +37,5 @@
 
 (defpage "/" []
   (page-wrapper
-    [:h1 "Welcome to Gipf-Online"]))
+    [:h1 "Welcome to GIPF Online"]))
 

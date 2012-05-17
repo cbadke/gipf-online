@@ -6,6 +6,6 @@
 
 (defpage "/zertz" []
   (page-wrapper
-    [:h1 "Play Zertz"]))
+    [:h1 "Play ZÈRTZ"]))
 
 

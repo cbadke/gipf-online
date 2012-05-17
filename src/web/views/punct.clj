@@ -6,6 +6,6 @@
 
 (defpage "/punct" []
   (page-wrapper
-    [:h1 "Play Punct"]))
+    [:h1 "Play PÜNCT"]))
 
 
