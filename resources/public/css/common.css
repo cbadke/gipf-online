@@ -2,13 +2,18 @@
 }
 
 #header {
-	padding: 10px;
 }
 
-#body-wrapper {
+#nav-container {
+	float: left;
+}
+
+#content-container {
+	float: left;
 }
 
 #footer {
+	clear: both;
 	height: 72px;
 }
 
