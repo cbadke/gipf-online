@@ -4,14 +4,14 @@
         [hiccup.page-helpers :only [include-css include-js html5 link-to]]))
 
 (defn script-inclusions []
-  (html5
+  (list
     (include-css "/css/common.css")
     (include-css "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/smoothness/jquery-ui.css")
     (include-js  "https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js")
     (include-js  "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js")))
 
 (defn nav-bar []
-  (html5
+  (list 
     [:a#home-link {:class "nav-link" :href "/"}]
     [:a#gipf-link {:class "nav-link" :href "/gipf"}]
     [:a#tzaar-link {:class "nav-link" :href "/tzaar"}]
@@ -22,7 +22,7 @@
     [:a#tamsk-link {:class "nav-link" :href "/tamsk"}]))
 
 (defn footer []
-  (html5
+  (list
     [:div 
      [:a#cc-link {:href "http://creativecommons.org/licenses/by-nc-sa/3.0/"} 
       [:img {:src "http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" :alt "Creative Commons License" :title "Creative Commons License"}]]
