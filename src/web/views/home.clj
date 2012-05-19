@@ -1,4 +1,4 @@
-(ns web.views.gipf
+(ns web.views.home
   (:use [noir.core :only [defpartial defpage]]
         [web.views.common :only [page-wrapper]]
         [hiccup.core]

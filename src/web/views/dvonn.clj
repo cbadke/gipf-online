@@ -6,4 +6,4 @@
 
 (defpage "/dvonn" []
   (page-wrapper
-    [:h1 "Play Dvonn"]))
+    [:h1 "Play DVONN"]))

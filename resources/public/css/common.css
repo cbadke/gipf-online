@@ -4,14 +4,48 @@
 #header {
 }
 
-#nav-container {
+#nav-container, #content-container {
 	float: left;
 }
 
-#content-container {
-	float: left;
+#home-link {
+	background-image: url("/images/home-nav-tab.png");
 }
 
+#gipf-link {
+	background-image: url("/images/gipf-nav-tab.png");
+}
+
+#tzaar-link {
+	background-image: url("/images/tzaar-nav-tab.png");
+}
+
+#zertz-link {
+	background-image: url("/images/zertz-nav-tab.png");
+}
+
+#dvonn-link {
+	background-image: url("/images/dvonn-nav-tab.png");
+}
+
+#yinsh-link {
+	background-image: url("/images/yinsh-nav-tab.png");
+}
+
+#punct-link {
+	background-image: url("/images/punct-nav-tab.png");
+}
+
+#tamsk-link {
+	background-image: url("/images/tamsk-nav-tab.png");
+}
+
+.nav-link {
+	width: 156px;
+	height: 46px;
+	background-repeat: no-repeat;
+	display: block;
+}
 #footer {
 	clear: both;
 	height: 72px;

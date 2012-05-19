@@ -6,6 +6,6 @@
 
 (defpage "/yinsh" []
   (page-wrapper
-    [:h1 "Play Yinsh"]))
+    [:h1 "Play YINSH"]))
 
 

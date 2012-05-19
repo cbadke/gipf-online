@@ -12,14 +12,14 @@
 
 (defn nav-bar []
   (html5
-    [:div [:a {:href "/"} "Home"]]
-    [:div [:a {:href "/gipf"} "GIPF"]]
-    [:div [:a {:href "/tzaar"} "TZAAR"]]
-    [:div [:a {:href "/zertz"} "ZÈRTZ"]]
-    [:div [:a {:href "/dvonn"} "DVONN"]]
-    [:div [:a {:href "/yinsh"} "YINSH"]]
-    [:div [:a {:href "/punct"} "PÜNCT"]]
-    [:div [:a {:href "/tamsk"} "TAMSK"]]))
+    [:a#home-link {:class "nav-link" :href "/"}]
+    [:a#gipf-link {:class "nav-link" :href "/gipf"}]
+    [:a#tzaar-link {:class "nav-link" :href "/tzaar"}]
+    [:a#zertz-link {:class "nav-link" :href "/zertz"}]
+    [:a#dvonn-link {:class "nav-link" :href "/dvonn"}]
+    [:a#yinsh-link {:class "nav-link" :href "/yinsh"}]
+    [:a#punct-link {:class "nav-link" :href "/punct"}]
+    [:a#tamsk-link {:class "nav-link" :href "/tamsk"}]))
 
 (defn footer []
   (html5

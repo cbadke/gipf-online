@@ -6,4 +6,4 @@
 
 (defpage "/tamsk" []
   (page-wrapper
-    [:h1 "Play Tamsk"]))
+    [:h1 "Play TAMSK"]))

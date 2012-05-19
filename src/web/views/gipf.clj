@@ -6,4 +6,4 @@
 
 (defpage "/gipf" []
   (page-wrapper
-    [:h1 "Play Gipf"]))
+    [:h1 "Play GIPF"]))
