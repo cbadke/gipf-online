@@ -24,10 +24,10 @@
 (defn footer []
   (list
     [:div 
-     [:a#cc-link {:href "http://creativecommons.org/licenses/by-nc-sa/3.0/"} 
-      [:img {:src "http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" :alt "Creative Commons License" :title "Creative Commons License"}]]
      [:a#github-link {:href "https://github.com/cbadke/gipf-online"}
-      [:img {:src "/images/github-icon.jpg" :alt "Fork me on Github" :title "Fork me on Github"}]]]
+      [:img {:src "/images/github-icon.jpg" :alt "Fork me on Github" :title "Fork me on Github"}]]
+     [:a#cc-link {:href "http://creativecommons.org/licenses/by-nc-sa/3.0/"} 
+      [:img {:src "http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" :alt "Creative Commons License" :title "Creative Commons License"}]]]
     [:div 
      [:a {:href "http://www.gipf.com"} "The GIPF Project"]
      [:span " is created by "]

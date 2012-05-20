@@ -4,14 +4,23 @@ html, body {
 	font-family: "URW Gothic L Book", "URW Gothic L", "sans serif";
 }
 
+body {
+	margin: 8px 0 8px 0;
+}
+
 #page-container {
 }
 
 #header {
+	height: 72px;
 }
 
 #nav-container, #content-container {
 	float: left;
+}
+
+#nav-container {
+	width: 200px;
 }
 
 #home-link {
@@ -54,6 +63,11 @@ html, body {
 }
 #footer {
 	clear: both;
+	position: absolute;
+	padding-bottom: 20px;
+	bottom: 0px;
+
+	width: 100%;
 	height: 72px;
 }
 
