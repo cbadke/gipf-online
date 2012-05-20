@@ -4,3 +4,9 @@ pom.xml
 /lib/
 /classes/
 .lein-deps-sum
+
+node_modules/
+.sass-cache/
+
+resources/public/css
+resources/public/javascript
