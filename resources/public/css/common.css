@@ -1,0 +1,60 @@
+@import url("/fonts/fonts.css") all;
+html, body {
+  font-family: "URW Gothic L Book", "URW Gothic L", "sans serif"; }
+
+body {
+  margin: 8px 0 8px 0; }
+
+#header {
+  height: 72px; }
+
+#nav-container, #content-container {
+  float: left; }
+
+#nav-container {
+  width: 200px; }
+
+#home-link {
+  background-image: url("/images/home-nav-tab.png"); }
+
+#gipf-link {
+  background-image: url("/images/gipf-nav-tab.png"); }
+
+#tzaar-link {
+  background-image: url("/images/tzaar-nav-tab.png"); }
+
+#zertz-link {
+  background-image: url("/images/zertz-nav-tab.png"); }
+
+#dvonn-link {
+  background-image: url("/images/dvonn-nav-tab.png"); }
+
+#yinsh-link {
+  background-image: url("/images/yinsh-nav-tab.png"); }
+
+#punct-link {
+  background-image: url("/images/punct-nav-tab.png"); }
+
+#tamsk-link {
+  background-image: url("/images/tamsk-nav-tab.png"); }
+
+.nav-link {
+  width: 156px;
+  height: 46px;
+  background-repeat: no-repeat;
+  display: block; }
+
+#footer {
+  clear: both;
+  position: absolute;
+  padding-bottom: 20px;
+  bottom: 0px;
+  width: 100%;
+  height: 72px; }
+
+#footer div {
+  margin: 0 auto;
+  display: table; }
+
+#footer img {
+  padding: 5px; }
