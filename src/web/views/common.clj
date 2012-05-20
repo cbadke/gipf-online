@@ -8,7 +8,8 @@
     (include-css "/css/common.css")
     (include-css "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/smoothness/jquery-ui.css")
     (include-js  "https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js")
-    (include-js  "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js")))
+    (include-js  "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js")
+    (include-js  "/javascript/navigation.js")))
 
 (defn nav-bar []
   (list 

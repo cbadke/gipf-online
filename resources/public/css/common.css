@@ -39,8 +39,9 @@ body {
   background-image: url("/images/tamsk-nav-tab.png"); }
 
 .nav-link {
-  width: 156px;
+  width: 181px;
   height: 46px;
+  margin-left: -28px;
   background-repeat: no-repeat;
   display: block; }
 

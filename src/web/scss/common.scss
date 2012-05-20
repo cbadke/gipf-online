@@ -1,5 +1,14 @@
 @import url("/fonts/fonts.css") all;
 
+$home: #aca69c;
+$gipf: #1756a5;
+$tamsk: #146c76;
+$punct: #4d6857;
+$dvonn: #ca1e2c;
+$tamsk: #d59628;
+$tzaar: #140f2f;
+$yinsh: #364950;
+
 html, body {
   font-family: "URW Gothic L Book", "URW Gothic L", "sans serif";
 }
@@ -56,8 +65,9 @@ body {
 }
 
 .nav-link {
-  width: 156px;
+  width: 181px;
   height: 46px;
+  margin-left: -28px;
   background-repeat: no-repeat;
   display: block;
 }
