@@ -1,3 +1,9 @@
+@import url("/fonts/fonts.css") all;
+
+html, body {
+	font-family: "URW Gothic L Book", "URW Gothic L", "sans serif";
+}
+
 #page-container {
 }
 
