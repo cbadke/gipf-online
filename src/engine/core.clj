@@ -4,8 +4,8 @@
 (def numbers (iterate inc 1))
 (def letters (cycle (seq "ABCDEFGHIJKLMNOPQRSTUVWXYZ")))
 
-(defn make-hex-column
-  "Create all cells for given column for a board of given width"
+(defn create-hex-column
+  "Create all cells for given column for a board of given width and height."
   [column width height]
   (let [center-column (if (odd? width) 
                           (/ (+ 1 width) 2) 
@@ -18,10 +18,10 @@
        (map (partial str column-letter)
             (take column-height numbers)))))
 
-(defn hex-board 
+(defn create-hex-board 
   "Create a fully connected hexagonal board"
   [width height]
   (flatten 
     (map 
-      #(make-hex-column % width height) 
+      #(create-hex-column % width height) 
       (take width numbers))))
