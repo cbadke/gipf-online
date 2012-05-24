@@ -1,7 +1,7 @@
-(ns web.server
+(ns gipf-online.web.server
   (:require [noir.server :as server]))
 
-(server/load-views "src/web/views")
+(server/load-views "src/gipf_online/web/views")
 
 (defn -main [& m]
   (let [mode (keyword (or (first m) :dev))

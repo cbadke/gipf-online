@@ -1,4 +1,4 @@
-(ns engine.core
+(ns gipf-online.engine.core
   (:use [clojure.algo.generic.math-functions :only [abs]]))
 
 (def numbers (iterate inc 1))

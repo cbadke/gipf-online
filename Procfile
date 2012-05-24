@@ -1,1 +1,1 @@
-web: lein trampoline run -m web.server
+web: lein trampoline run -m gipf-online.web.server

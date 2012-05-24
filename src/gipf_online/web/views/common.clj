@@ -1,4 +1,4 @@
-(ns web.views.common
+(ns gipf-online.web.views.common
   (:use [noir.core :only [defpartial defpage]]
         [hiccup.core]
         [hiccup.page-helpers :only [include-css include-js html5 link-to]]))

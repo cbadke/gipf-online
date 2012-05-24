@@ -1,5 +1,5 @@
-(ns engine.t-core
-  (:use [engine.core])
+(ns gipf-online.engine.t-core
+  (:use [gipf-online.engine.core])
   (:use [midje.sweet]))
 
 (fact "can create hex board"
