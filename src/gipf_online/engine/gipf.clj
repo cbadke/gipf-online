@@ -1,15 +1,17 @@
-(ns gipf-online.engine.core
+(ns gipf-online.engine.gipf
   (:use [clojure.algo.generic.math-functions :only [abs]]))
 
 (def numbers (iterate inc 1))
 (def letters (cycle (seq "ABCDEFGHIJKLMNOPQRSTUVWXYZ")))
 
+(defstruct space :colour :neighbours)
+
 (defn create-space 
   "Create a new space at the passed coordinate"
   [coord]
-  {coord 1})
+  {coord (struct space :empty '())})
 
-(defn create-hex-column
+(defn create-column
   "Create all cells for given column for a board of given width and height."
   [column width height]
   (let [center-column (if (odd? width) 
@@ -23,10 +25,10 @@
        (map (partial str column-letter)
             (take column-height numbers)))))))
 
-(defn create-hex-board 
-  "Create a fully connected hexagonal board"
+(defn create-board 
+  "Create an empty board"
   [width height]
   (reduce conj {} 
     (map 
-      #(create-hex-column % width height) 
+      #(create-column % width height) 
       (take width numbers))))
