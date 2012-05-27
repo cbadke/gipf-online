@@ -3,5 +3,7 @@
   (:use [midje.sweet]))
 
 (fact "can create board"
-  (count (create-board 3 3)) => 7
-  (count (create-board 9 9)) => 61)
+  (count (create-empty-board)) => 61)
+
+(fact "board is empty"
+  (every? #(= :empty (:colour (val %))) (create-empty-board)) => true)
