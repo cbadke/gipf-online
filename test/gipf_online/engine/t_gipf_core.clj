@@ -15,13 +15,31 @@
   (((create-space :A1 :black) :A1) :colour) => :black)
 
 (fact "edge positions can see inner positions"
-  (up-right :A1) => :B2)
+  (up-right :A1) => :B2
+  (down-right :A2) => :B2
+  (up :B1) => :B2
+  (down :B6) => :B5
+  (up-left :I1) => :H2
+  (down-left :H6) => :G6)
 
 (fact "inner positions cannot see edge positions"
-  (up-right :H2) => nil)
+  (up-right :H2) => nil
+  (down-right :E2) => nil
+  (up :B5) => nil
+  (down :H2) => nil
+  (up-left :B5) => nil
+  (down-left :D2) => nil)
 
-(fact "up-right increases row on left side of board"
-  (up-right :B3) => :C4)
+(fact "horizontal movements calc row numbers correctly"
+  (up-right :B3) => :C4
+  (up-right :E5) => :F5
+  (down-right :C3) => :D3
+  (down-right :E5) => :F4
+  (up-left :D6) => :C6
+  (up-left :G2) => :F3
+  (down-left :C6) => :B5
+  (down-left :H6) => :G6)
 
-(fact "up-right keeps row on right side of board"
-  (up-right :E5) => :F5)
+(fact "vertical movements only change row"
+  (up :B3) => :B4
+  (down :E5) => :E4)

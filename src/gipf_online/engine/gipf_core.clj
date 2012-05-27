@@ -33,20 +33,44 @@
          (<= row 1)
          (<= column 1)
          (>= column 9)
-         (>= column (calc-column-height column)))))
+         (>= row (calc-column-height column)))))
 
-(defn up-right
-  [coord]
+(defn calc-destination
+  [coord hor-func left-vert-func right-vert-func]
   (let [[column row] (parse-coord coord)
-        new-column (+ 1 column)
+        new-column (hor-func column)
         new-row (if
                   (< column 5)
-                  (+ 1 row)
-                  row)]
+                  (left-vert-func row)
+                  (right-vert-func row))]
     (if 
       (valid-destination? new-column new-row)
       (build-coord new-column new-row)
       nil))) 
+
+(defn up
+  [coord]
+  (calc-destination coord #(+ % 0) #(+ % 1) #(+ % 1)))
+
+(defn up-right
+  [coord]
+  (calc-destination coord #(+ % 1) #(+ % 1) #(+ % 0)))
+
+(defn up-left
+  [coord]
+  (calc-destination coord #(- % 1) #(+ % 0) #(+ % 1)))
+
+(defn down
+  [coord]
+  (calc-destination coord #(+ % 0) #(- % 1) #(- % 1)))
+
+(defn down-right
+  [coord]
+  (calc-destination coord #(+ % 1) #(- % 0) #(- % 1)))
+
+(defn down-left
+  [coord]
+  (calc-destination coord #(- % 1) #(- % 1) #(- % 0)))
 
 ;=============================================
 
