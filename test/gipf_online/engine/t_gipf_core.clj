@@ -43,3 +43,12 @@
 (fact "vertical movements only change row"
   (up :B3) => :B4
   (down :E5) => :E4)
+
+(fact "Direction returns direction function from source to dest"
+  ((direction :A1 :B2) :A1) => :B2
+  ((direction :A2 :B2) :A2) => :B2
+  ((direction :B2 :B3) :B2) => :B3
+  ((direction :B3 :B2) :B3) => :B2
+  ((direction :F3 :E3) :F3) => :E3
+  ((direction :F3 :E4) :F3) => :E4
+  (direction :B5 :A4) => nil)

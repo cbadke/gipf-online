@@ -72,6 +72,18 @@
   [coord]
   (calc-destination coord #(- % 1) #(- % 1) #(- % 0)))
 
+(defn direction
+  "Return the direction function that gets from source to dest. nil if destination is not adjacent to source."
+  [source dest]
+  (cond
+    (= (up source) dest) up
+    (= (up-right source) dest) up-right
+    (= (up-left source) dest) up-left
+    (= (down source) dest) down
+    (= (down-right source) dest) down-right
+    (= (down-left source) dest) down-left
+    :else nil))
+
 ;=============================================
 
 (defn create-space 
