@@ -3,5 +3,7 @@
 
 (defn create-empty-board []
   "Create an empty gipf board"
-  (reduce conj {} 
-    (map #(create-column %) (range 1 10))))
+  { :spaces (reduce conj {} (map 
+                             #(create-column %) 
+                             (range 1 10)))
+    :current-player :white })
