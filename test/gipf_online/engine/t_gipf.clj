@@ -11,3 +11,12 @@
 
 (fact "Current player toggles after successful move"
   (:current-player (move (create-board) :A1 :B2)) => :black)
+
+(fact "Basic board has corners prepopulated"
+  (:colour (:B2 (:spaces (create-basic-board)))) => :white
+  (:colour (:B5 (:spaces (create-basic-board)))) => :black
+  (:colour (:E8 (:spaces (create-basic-board)))) => :white
+  (:colour (:H5 (:spaces (create-basic-board)))) => :black
+  (:colour (:H2 (:spaces (create-basic-board)))) => :white
+  (:colour (:E2 (:spaces (create-basic-board)))) => :black
+  (count (filter #(= :empty (:colour (val %))) (:spaces (create-basic-board)))) => 55)

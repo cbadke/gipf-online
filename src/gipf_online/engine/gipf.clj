@@ -16,3 +16,18 @@
                (board :spaces) 
                (create-space dest (board :current-player)))))
     board))
+
+(defn create-basic-board []
+  "Create a board with corners pre-populated of basic game"
+  (move
+    (move
+      (move
+        (move
+          (move
+            (move (create-board) 
+                  :A1 :B2)
+            :A5 :B5)
+          :E9 :E8)
+        :I5 :H5)
+      :H1 :H2)
+    :E1 :E2))
