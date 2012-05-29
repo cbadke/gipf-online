@@ -108,7 +108,7 @@
   "Create an empty gipf board"
   { :spaces (reduce conj {} (map 
                              #(create-column %) 
-                             (range 1 10)))
+                             (take board-width (iterate inc 1))))
     :current-player :white })
 
 ;=============================================
@@ -119,3 +119,11 @@
     (apply valid-source? (parse-coord source))
     (apply valid-destination? (parse-coord dest))
     (not (nil? (direction source dest)))))
+
+(defn alternate-player
+  [board]
+  (let [new-colour (if 
+                     (= :black (:current-player board))
+                     :white
+                     :black)]
+    (assoc board :current-player new-colour)))

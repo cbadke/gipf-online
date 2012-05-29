@@ -74,3 +74,6 @@
 (fact "white starts"
   (:current-player (create-empty-board)) => :white)
 
+(fact "alternate-player toggles player"
+  (:current-player (alternate-player (create-empty-board))) => :black
+  (:current-player (alternate-player (alternate-player (create-empty-board)))) => :white)

@@ -9,5 +9,5 @@
 (fact "Moving in from edge places piece"
   (:colour (:B2 (:spaces (move (create-board) :A1 :B2)))) => :white)
 
-;(fact "Current player toggles after successful move"
-;  (:current-player (move (create-empty-board) :A1 :B2)) => :black)
+(fact "Current player toggles after successful move"
+  (:current-player (move (create-board) :A1 :B2)) => :black)
