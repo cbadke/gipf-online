@@ -64,3 +64,13 @@
 
 (fact "moving from edge to adjacent non-edge is valid"
   (valid-move? :A1 :B2) => true)
+
+(fact "can create board"
+  (count ((create-empty-board) :spaces)) => 61)
+
+(fact "board is empty"
+  (every? #(= :empty (:colour (val %))) ((create-empty-board) :spaces)) => true)
+
+(fact "white starts"
+  (:current-player (create-empty-board)) => :white)
+

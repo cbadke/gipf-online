@@ -104,6 +104,13 @@
                  (map #(build-coord column %)
                       (take column-height numbers))))))
 
+(defn create-empty-board []
+  "Create an empty gipf board"
+  { :spaces (reduce conj {} (map 
+                             #(create-column %) 
+                             (range 1 10)))
+    :current-player :white })
+
 ;=============================================
 
 (defn valid-move?
