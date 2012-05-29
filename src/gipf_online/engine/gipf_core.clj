@@ -35,6 +35,10 @@
          (>= column 9)
          (>= row (calc-column-height column)))))
 
+(defn valid-source?
+  [column row]
+  (not (valid-destination? column row)))
+
 (defn calc-destination
   [coord hor-func left-vert-func right-vert-func]
   (let [[column row] (parse-coord coord)
@@ -100,4 +104,11 @@
                  (map #(build-coord column %)
                       (take column-height numbers))))))
 
+;=============================================
 
+(defn valid-move?
+  [source dest]
+  (and 
+    (apply valid-source? (parse-coord source))
+    (apply valid-destination? (parse-coord dest))
+    (not (nil? (direction source dest)))))

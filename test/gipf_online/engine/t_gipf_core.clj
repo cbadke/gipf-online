@@ -52,3 +52,15 @@
   ((direction :F3 :E3) :F3) => :E3
   ((direction :F3 :E4) :F3) => :E4
   (direction :B5 :A4) => nil)
+
+(fact "moving from space other than the edge is not valid"
+  (valid-move? :B3 :B4) => false)
+
+(fact "moving from edge to non-adjacent space is not valid"
+  (valid-move? :A1 :E4) => false)
+
+(fact "moving from edge to edge is not valid"
+  (valid-move? :A1 :A2) => false)
+
+(fact "moving from edge to adjacent non-edge is valid"
+  (valid-move? :A1 :B2) => true)
