@@ -65,6 +65,14 @@
 (fact "moving from edge to adjacent non-edge is valid"
   (valid-move? :A1 :B2) => true)
 
+(fact "sliding into full row is not valid"
+  (let [e-board (create-empty-board)
+        new-spaces {:B2 {:colour :white}, :C2 {:colour :white}, :D2 {:colour :white}, :E2 {:colour :white}}
+        board (assoc e-board :spaces (conj (:spaces e-board) new-spaces))]
+    (valid-slide? board :A1 up-right) => true
+    (valid-slide? board :A2 down-right) => false))
+
+
 (fact "can create board"
   (count ((create-empty-board) :spaces)) => 61)
 
@@ -77,3 +85,4 @@
 (fact "alternate-player toggles player"
   (:current-player (alternate-player (create-empty-board))) => :black
   (:current-player (alternate-player (alternate-player (create-empty-board)))) => :white)
+

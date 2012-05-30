@@ -88,6 +88,14 @@
     (= (down-left source) dest) down-left
     :else nil))
 
+(defn valid-slide?
+  [board source direction]
+  (let [dest (direction source)]
+    (cond
+      (nil? dest) false
+      (= :empty (:colour (dest (:spaces board)))) true
+      :else (valid-slide? board dest direction))))
+
 ;=============================================
 
 (defn create-space 
