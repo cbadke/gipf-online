@@ -1,5 +1,5 @@
 (ns gipf-online.engine.gipf
-  (:use [gipf-online.engine.gipf-core :only [create-empty-board create-space valid-move? alternate-player]]))
+  (:use [gipf-online.engine.gipf-core :only [create-empty-board create-space valid-move? alternate-player direction slide-piece]]))
 
 (defn create-board[]
   "Create an empty gipf board"
@@ -10,11 +10,7 @@
   [board source dest]
   (if (valid-move? source dest)
     (alternate-player
-      (assoc board 
-             :spaces 
-             (conj 
-               (board :spaces) 
-               (create-space dest (board :current-player)))))
+      (slide-piece board source (direction source dest)))
     board))
 
 (defn create-basic-board []

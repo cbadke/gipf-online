@@ -20,3 +20,18 @@
   (:colour (:H2 (:spaces (create-basic-board)))) => :white
   (:colour (:E2 (:spaces (create-basic-board)))) => :black
   (count (filter #(= :empty (:colour (val %))) (:spaces (create-basic-board)))) => 55)
+
+(fact "moving pieces slides row"
+  (:colour
+    (:E8 
+      (:spaces 
+        (move 
+          (move 
+            (create-empty-board) :F8 :E8) :F8 :E8)))) => :black
+  (:colour
+    (:D7 
+      (:spaces 
+        (move 
+          (move 
+            (create-empty-board) :F8 :E8) :F8 :E8)))) => :white)
+

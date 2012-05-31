@@ -87,15 +87,6 @@
     (= (down-right source) dest) down-right
     (= (down-left source) dest) down-left
     :else nil))
-
-(defn valid-slide?
-  [board source direction]
-  (let [dest (direction source)]
-    (cond
-      (nil? dest) false
-      (= :empty (:colour (dest (:spaces board)))) true
-      :else (valid-slide? board dest direction))))
-
 ;=============================================
 
 (defn create-space 
@@ -127,6 +118,26 @@
     (apply valid-source? (parse-coord source))
     (apply valid-destination? (parse-coord dest))
     (not (nil? (direction source dest)))))
+
+(defn valid-slide?
+  [board source direction]
+  (let [dest (direction source)]
+    (cond
+      (nil? dest) false
+      (= :empty (:colour (dest (:spaces board)))) true
+      :else (valid-slide? board dest direction))))
+
+(defn slide-piece
+  [board source direction]
+  (let [dest (direction source)]
+  (assoc board 
+         :spaces 
+         (conj 
+           (:spaces board) 
+           (create-space 
+             (direction source) 
+             (board :current-player))))))
+
 
 (defn alternate-player
   [board]

@@ -72,7 +72,6 @@
     (valid-slide? board :A1 up-right) => true
     (valid-slide? board :A2 down-right) => false))
 
-
 (fact "can create board"
   (count ((create-empty-board) :spaces)) => 61)
 
@@ -86,3 +85,11 @@
   (:current-player (alternate-player (create-empty-board))) => :black
   (:current-player (alternate-player (alternate-player (create-empty-board)))) => :white)
 
+(fact "slide-piece bumps pieces in"
+  (let [e-board (create-empty-board)
+        new-spaces {:B2 {:colour :white}, :C2 {:colour :black}, :D2 {:colour :white}}
+        board (assoc e-board :spaces (conj (:spaces e-board) new-spaces))]
+    (:B2 (:spaces (slide-piece board :B2 up-right))) => {:colour :empty}
+    (:C2 (:spaces (slide-piece board :B2 up-right))) => {:colour :white}
+    (:D2 (:spaces (slide-piece board :B2 up-right))) => {:colour :black}
+    (:E2 (:spaces (slide-piece board :B2 up-right))) => {:colour :white}))
