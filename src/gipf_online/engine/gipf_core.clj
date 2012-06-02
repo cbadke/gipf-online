@@ -43,10 +43,14 @@
   [coord hor-func left-vert-func right-vert-func]
   (let [[column row] (parse-coord coord)
         new-column (hor-func column)
-        new-row (if
-                  (< column 5)
-                  (left-vert-func row)
-                  (right-vert-func row))]
+        new-row (cond
+                  (= column 5)
+                  (if
+                    (< new-column 5)
+                    (left-vert-func row)
+                    (right-vert-func row))
+                  (< column 5) (left-vert-func row)
+                  :else (right-vert-func row))]
     (if 
       (valid-destination? new-column new-row)
       (build-coord new-column new-row)
@@ -127,17 +131,26 @@
       (= :empty (:colour (dest (:spaces board)))) true
       :else (valid-slide? board dest direction))))
 
-(defn slide-piece
-  [board source direction]
-  (let [dest (direction source)]
+(defn place-piece
+  [board space colour]
   (assoc board 
          :spaces 
          (conj 
            (:spaces board) 
-           (create-space 
-             (direction source) 
-             (board :current-player))))))
+           (create-space space colour))))
 
+(defn slide-piece
+  [board source direction]
+  (let [dest (direction source)
+        src-colour (:colour (source (:spaces board)))
+        dest-colour (:colour (dest (:spaces board)))]
+    (place-piece
+      (if (= :empty dest-colour)
+        (place-piece board dest src-colour)
+        (place-piece (slide-piece board dest direction) dest src-colour))
+      source 
+      :empty)
+    ))
 
 (defn alternate-player
   [board]

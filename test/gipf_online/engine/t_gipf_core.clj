@@ -30,19 +30,29 @@
   (up-left :B5) => nil
   (down-left :D2) => nil)
 
-(fact "horizontal movements calc row numbers correctly"
-  (up-right :B3) => :C4
-  (up-right :E5) => :F5
-  (down-right :C3) => :D3
-  (down-right :E5) => :F4
-  (up-left :D6) => :C6
-  (up-left :G2) => :F3
-  (down-left :C6) => :B5
-  (down-left :H6) => :G6)
+(fact "move from left cell calcs correctly"
+  (up :C4) => :C5
+  (up-right :C4) => :D5
+  (up-left :C4) => :B4
+  (down :C4) => :C3
+  (down-right :C4) => :D4
+  (down-left :C4) => :B3)
 
-(fact "vertical movements only change row"
-  (up :B3) => :B4
-  (down :E5) => :E4)
+(fact "move from right cell calcs correctly"
+  (up :G4) => :G5
+  (up-right :G4) => :H4
+  (up-left :G4) => :F5
+  (down :G4) => :G3
+  (down-right :G4) => :H3
+  (down-left :G4) => :F4)
+
+(fact "move from center calcs correctly"
+  (up :E5) => :E6
+  (up-right :E5) => :F5
+  (up-left :E5) => :D5
+  (down :E5) => :E4
+  (down-right :E5) => :F4
+  (down-left :E5) => :D4)
 
 (fact "Direction returns direction function from source to dest"
   ((direction :A1 :B2) :A1) => :B2
@@ -87,9 +97,19 @@
 
 (fact "slide-piece bumps pieces in"
   (let [e-board (create-empty-board)
-        new-spaces {:B2 {:colour :white}, :C2 {:colour :black}, :D2 {:colour :white}}
-        board (assoc e-board :spaces (conj (:spaces e-board) new-spaces))]
-    (:B2 (:spaces (slide-piece board :B2 up-right))) => {:colour :empty}
-    (:C2 (:spaces (slide-piece board :B2 up-right))) => {:colour :white}
-    (:D2 (:spaces (slide-piece board :B2 up-right))) => {:colour :black}
-    (:E2 (:spaces (slide-piece board :B2 up-right))) => {:colour :white}))
+        board (place-piece e-board :B2 :white)]
+    (:B2 (:spaces (slide-piece board :B2 down-right))) => {:colour :empty}
+    (:C2 (:spaces (slide-piece board :B2 down-right))) => {:colour :white}))
+
+(fact "slide-piece bumps pieces in"
+  (let [e-board (create-empty-board)
+        board (place-piece
+                (place-piece
+                  (place-piece e-board
+                    :B2 :white)
+                  :C2 :black)
+                :D2 :white)]
+    (:B2 (:spaces (slide-piece board :B2 down-right))) => {:colour :empty}
+    (:C2 (:spaces (slide-piece board :B2 down-right))) => {:colour :white}
+    (:D2 (:spaces (slide-piece board :B2 down-right))) => {:colour :black}
+    (:E2 (:spaces (slide-piece board :B2 down-right))) => {:colour :white}))
