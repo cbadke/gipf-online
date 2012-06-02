@@ -44,12 +44,12 @@
   (let [[column row] (parse-coord coord)
         new-column (hor-func column)
         new-row (cond
-                  (= column 5)
+                  (= column board-center)
                   (if
-                    (< new-column 5)
+                    (< new-column board-center)
                     (left-vert-func row)
                     (right-vert-func row))
-                  (< column 5) (left-vert-func row)
+                  (< column board-center) (left-vert-func row)
                   :else (right-vert-func row))]
     (if 
       (valid-destination? new-column new-row)
